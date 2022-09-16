@@ -1,23 +1,29 @@
 #!/usr/bin/env python3
+import boto3
 import os
 
 import aws_cdk as cdk
 
-from remedy_lambda_public_ip_visibility.remedy_lambda_public_ip_visibility_stack import RemedyLambdaPublicIpVisibilityStack
+from getpublicip.getpublicip_stack import GetpublicipStack
 
 app = cdk.App()
 
-RemedyLambdaPublicIpVisibilityStack(
-    app, 'RemedyLambdaPublicIpVisibilityStack',
-    env = cdk.Environment(
-        account = os.getenv('CDK_DEFAULT_ACCOUNT'),
-        region = os.getenv('CDK_DEFAULT_REGION')
-    ),
-    synthesizer = cdk.DefaultStackSynthesizer(
-        qualifier = '4n6ir'
-    )
-)
+client = boto3.client('ec2')
+regions = client.describe_regions()
 
-cdk.Tags.of(app).add('remedy-lambda-public-ip-visibility','remedy-lambda-public-ip-visibility')
+for region in regions['Regions']:
+
+    GetpublicipStack(
+        app, 'GetpublicipStack-'+region['RegionName'],
+        env = cdk.Environment(
+            account = os.getenv('CDK_DEFAULT_ACCOUNT'),
+            region = region['RegionName']
+        ),
+        synthesizer = cdk.DefaultStackSynthesizer(
+            qualifier = '4n6ir'
+        )
+    )
+
+cdk.Tags.of(app).add('getpublicip','getpublicip')
 
 app.synth()
