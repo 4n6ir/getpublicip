@@ -14,7 +14,10 @@ class GetpublicipStack(Stack):
         region = Stack.of(self).region
 
         if region == 'af-south-1' or region == 'ap-east-1' or region == 'ap-northeast-2' or \
-            region == 'ap-northeast-3' or region == 'ap-southeast-3' or region == 'ca-central-1':
+            region == 'ap-northeast-3' or region == 'ap-southeast-3' or region == 'ca-central-1' or \
+            region == 'eu-north-1' or region == 'eu-south-1' or region == 'eu-west-3' or \
+            region == 'me-central-1' or region == 'me-south-1' or region == 'sa-east-1' or \
+            region == 'us-west-1':
 
             layer = _lambda.LayerVersion(
                 self, 'layer',
@@ -25,7 +28,7 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_9
                 ],
                 description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.1 Python library.',
-                layer_version_name = 'get-public-ip',
+                layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
             )
@@ -45,7 +48,7 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_9
                 ],
                 description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.1 Python library.',
-                layer_version_name = 'get-public-ip',
+                layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
             )
