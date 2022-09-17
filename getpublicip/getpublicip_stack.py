@@ -11,24 +11,44 @@ class GetpublicipStack(Stack):
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-        layer = _lambda.LayerVersion(
-            self, 'layer',
-            code = _lambda.Code.from_asset('bundle/extension.zip'),
-            compatible_architectures = [
-                _lambda.Architecture.ARM_64,
-                _lambda.Architecture.X86_64
-            ],
-            compatible_runtimes = [
-                _lambda.Runtime.PYTHON_3_6,
-                _lambda.Runtime.PYTHON_3_7,
-                _lambda.Runtime.PYTHON_3_8,
-                _lambda.Runtime.PYTHON_3_9
-            ],
-            description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.1 Python library.',
-            layer_version_name = 'get-public-ip',
-            license = 'Apache-2.0 License',
-            removal_policy = RemovalPolicy.DESTROY
-        )
+        region = Stack.of(self).region
+
+        if region == 'af-south-1' or region == 'ap-east-1' or region == 'ap-northeast-2' or \
+            region == 'ap-northeast-3' or region == 'ap-southeast-3' or region == 'ca-central-1':
+
+            layer = _lambda.LayerVersion(
+                self, 'layer',
+                code = _lambda.Code.from_asset('bundle/extension.zip'),
+                compatible_runtimes = [
+                    _lambda.Runtime.PYTHON_3_7,
+                    _lambda.Runtime.PYTHON_3_8,
+                    _lambda.Runtime.PYTHON_3_9
+                ],
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.1 Python library.',
+                layer_version_name = 'get-public-ip',
+                license = 'Apache-2.0 License',
+                removal_policy = RemovalPolicy.DESTROY
+            )
+
+        else:
+
+            layer = _lambda.LayerVersion(
+                self, 'layer',
+                code = _lambda.Code.from_asset('bundle/extension.zip'),
+                compatible_architectures = [
+                    _lambda.Architecture.ARM_64,
+                    _lambda.Architecture.X86_64
+                ],
+                compatible_runtimes = [
+                    _lambda.Runtime.PYTHON_3_7,
+                    _lambda.Runtime.PYTHON_3_8,
+                    _lambda.Runtime.PYTHON_3_9
+                ],
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.1 Python library.',
+                layer_version_name = 'get-public-ip',
+                license = 'Apache-2.0 License',
+                removal_policy = RemovalPolicy.DESTROY
+            )
 
         layer.add_permission(
             id = 'permission',
