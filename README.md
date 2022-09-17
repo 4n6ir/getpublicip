@@ -1,6 +1,8 @@
 # getpublicip
 
-![awslambda](ICON.png)
+| ![awslambda](ICON.png) | X64 | ARM |
+|------------------------------------|
+| ```yes``` | Y | N |
 
 | ARN | X64 | ARM |
 |-----------------|
