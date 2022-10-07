@@ -13,11 +13,7 @@ class GetpublicipStack(Stack):
 
         region = Stack.of(self).region
 
-        if region == 'af-south-1' or region == 'ap-east-1' or region == 'ap-northeast-2' or \
-            region == 'ap-northeast-3' or region == 'ap-southeast-3' or region == 'ca-central-1' or \
-            region == 'eu-north-1' or region == 'eu-south-1' or region == 'eu-west-3' or \
-            region == 'me-central-1' or region == 'me-south-1' or region == 'sa-east-1' or \
-            region == 'us-west-1':
+        if region == 'me-central-1':
 
             layer = _lambda.LayerVersion(
                 self, 'layer',
