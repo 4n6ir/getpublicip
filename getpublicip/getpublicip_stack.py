@@ -1,4 +1,7 @@
+import cdk_nag
+
 from aws_cdk import (
+    Aspects,
     RemovalPolicy,
     Stack,
     aws_lambda as _lambda
@@ -10,6 +13,13 @@ class GetpublicipStack(Stack):
 
     def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
+
+        Aspects.of(self).add(
+            cdk_nag.AwsSolutionsChecks(
+                log_ignores = True,
+                verbose = True
+            )
+        )
 
         region = Stack.of(self).region
 
