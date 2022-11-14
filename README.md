@@ -10,7 +10,7 @@
         if region == 'ap-northeast-1' or region == 'ap-south-1' or region == 'ap-southeast-1' or \
             region == 'ap-southeast-2' or region == 'eu-central-1' or region == 'eu-west-1' or \
             region == 'eu-west-2' or region == 'me-central-1' or region == 'us-east-1' or \
-            region == 'us-east-2' or region == 'us-west-2': number = str(1)
+            region == 'us-east-2' or region == 'us-west-2' or region == 'eu-central-2': number = str(1)
 
         if region == 'af-south-1' or region == 'ap-east-1' or region == 'ap-northeast-2' or \
             region == 'ap-northeast-3' or region == 'ap-southeast-3' or region == 'ca-central-1' or \
@@ -117,6 +117,12 @@ arn:aws:lambda:eu-west-2:070176467818:layer:getpublicip:1
 
 ```
 arn:aws:lambda:eu-west-3:070176467818:layer:getpublicip:2
+```
+
+##### eu-central-2
+
+```
+arn:aws:lambda:eu-central-2:070176467818:layer:getpublicip:1
 ```
 
 ##### me-central-1

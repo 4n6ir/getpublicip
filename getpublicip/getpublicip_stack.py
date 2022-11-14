@@ -23,7 +23,7 @@ class GetpublicipStack(Stack):
 
         region = Stack.of(self).region
 
-        if region == 'me-central-1':
+        if region == 'me-central-1' or region == 'eu-central-2':
 
             layer = _lambda.LayerVersion(
                 self, 'layer',
