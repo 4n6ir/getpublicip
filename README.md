@@ -1,5 +1,22 @@
 # getpublicip
 
+The Lambda Extension allows you to attach an existing Function to run in the same execution environment by sharing CPU, Memory, Disk Storage, Environment Variables, and IAM Permissions. Lambda supports up to 10 extensions (multiple per layer) and up to 5 layers per function, counting against the unzipped deployment package size limit of 250 MB. It adds benefits but introduces potential threats that justify defining an SCP to mitigate the risk.
+
+##### Potential Threats:
+
+- Do you trust the external Lambda Extension or Lambda Layer attached to the Lambda Function not to inject malicious code?
+- Lambda Layers do not show if they are publically shared or have access granted to external AWS Accounts in the console, making a potential route for limited data exfiltration.
+
+I have created Lambda Extention that captures the Public IP Address by visiting this AWS site to help reduce the request latency.
+
+https://checkip.amazonaws.com
+
+The Lambda Extension returns the following log entry in the Cloud Watch Logs.
+
+```
+[get-public-ip] 3.216.79.240
+```
+
 ##### Cloud Development Kit (CDK) v2
 
 ![awslambda](ICON.png)
