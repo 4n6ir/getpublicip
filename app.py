@@ -24,7 +24,6 @@ for region in regions['Regions']:
         )
     )
 
-
 cdk.Tags.of(app).add('Alias','Extensions')
 cdk.Tags.of(app).add('GitHub','https://github.com/4n6ir/getpublicip.git')
 
