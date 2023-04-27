@@ -33,7 +33,7 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_8,
                     _lambda.Runtime.PYTHON_3_9
                 ],
-                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.2 Python library.',
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.29.0 Python library.',
                 layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
@@ -50,7 +50,7 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_9,
                     _lambda.Runtime.PYTHON_3_10
                 ],
-                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.2 Python library.',
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.29.0 Python library.',
                 layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
@@ -71,7 +71,7 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_9,
                     _lambda.Runtime.PYTHON_3_10
                 ],
-                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.28.2 Python library.',
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.29.0 Python library.',
                 layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
