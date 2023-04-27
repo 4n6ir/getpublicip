@@ -30,6 +30,11 @@ class GetpublicipStack(Stack):
             cdk_nag.PCIDSS321Checks()
         )
 
+        cdk_nag.NagSuppressions.add_stack_suppressions(
+            self, suppressions = [
+            ]
+        )
+
         region = Stack.of(self).region
 
         if region == 'me-central-1':
