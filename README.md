@@ -59,3 +59,4 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 - us-east-2
 - us-west-1
 - us-west-2
+
