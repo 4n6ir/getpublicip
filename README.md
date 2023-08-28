@@ -26,7 +26,7 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 
         layer = _lambda.LayerVersion.from_layer_version_arn(
             self, 'layer',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:7'
+            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:8'
         )
 ```
 
@@ -52,6 +52,7 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 - eu-west-1
 - eu-west-2
 - eu-west-3
+- il-central-1
 - me-central-1
 - me-south-1
 - sa-east-1
@@ -59,4 +60,3 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 - us-east-2
 - us-west-1
 - us-west-2
-
