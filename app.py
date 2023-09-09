@@ -13,6 +13,9 @@ regions = client.describe_regions()
 
 for region in regions['Regions']:
 
+    #command = 'aws ecr get-login-password --region '+region['RegionName']+' --profile Extensions | docker login --username AWS --password-stdin 070176467818.dkr.ecr.'+region['RegionName']+'.amazonaws.com'
+    #os.system(command)
+
     GetpublicipStack(
         app, 'GetpublicipStack-'+region['RegionName'],
         env = cdk.Environment(

@@ -4,6 +4,7 @@ import os
 import requests
 import signal
 import sys
+from datetime import datetime
 from pathlib import Path
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
@@ -22,7 +23,25 @@ def execute_custom_processing(event):
     http = requests.Session()
     http.mount("https://", adapter)
     r = http.get('https://checkip.amazonaws.com')
-    print(f"[{LAMBDA_EXTENSION_NAME}] {r.text}", flush=True)
+    
+    publicip = r.text.strip()
+    now = datetime.now()
+
+    try:
+        awsaccount = os.environ['AWS_ACCOUNT']
+    except:
+        awsaccount = 'Please add the AWS_ACCOUNT environment variable to the Lambda.'
+        pass
+
+    output = {
+        "publicip": publicip,
+        "timestamp": now.strftime("%m/%d/%Y %H:%M:%S.%f UTC"),
+        "function": os.environ['AWS_LAMBDA_FUNCTION_NAME'],
+        "region": os.environ['AWS_REGION'],
+        "account": awsaccount
+    }
+
+    print(f"{str(output)}", flush=True)
 
 def handle_signal(signal, frame):
     sys.exit(0)
