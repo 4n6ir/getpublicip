@@ -1,4 +1,4 @@
-# get-public-ip
+# getpublicip
 
  - https://github.com/aws-samples/aws-lambda-extensions/tree/main/python-example-extension
 
