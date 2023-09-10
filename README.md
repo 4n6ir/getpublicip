@@ -14,13 +14,13 @@ https://checkip.amazonaws.com
 
 The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 
-```
+```json
 {
-    'publicip': '34.220.123.1',
-    'timestamp': '09/08/2023 02:43:32.379936 UTC',
-    'function': 'AmazonblocksStack-gtfobin14961F10-bvnpSnvvSSfH',
-    'region': 'us-west-2',
-    'account': '070176467818'
+    "publicip": "34.220.123.1",
+    "timestamp": "09/08/2023 02:43:32.379936 UTC",
+    "function": "AmazonblocksStack-gtfobin14961F10-bvnpSnvvSSfH",
+    "region": "us-west-2",
+    "account": "070176467818"
 }
 ```
 
