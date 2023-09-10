@@ -14,7 +14,7 @@ https://checkip.amazonaws.com
 
 The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 
-```json
+```
 {
     'publicip': '34.220.123.1',
     'timestamp': '09/08/2023 02:43:32.379936 UTC',

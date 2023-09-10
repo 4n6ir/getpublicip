@@ -127,17 +127,3 @@ class GetpublicipStack(Stack):
         repository.grant_pull(
             _iam.AnyPrincipal()
         )
-
-        image = _assets.DockerImageAsset(
-            self, 'image',
-            directory = 'docker'
-        )
-
-        #command = 'aws ecr get-login-password --region '+region+' --profile Extensions | docker login --username AWS --password-stdin 070176467818.dkr.ecr.'+region+'.amazonaws.com'
-        #os.system(command)
-
-        #cdk_ecr_deployment.ECRDeployment(
-        #    self, 'DeployDockerImage',
-        #    src = cdk_ecr_deployment.DockerImageName(image.image_uri),
-        #    dest = cdk_ecr_deployment.DockerImageName(f"{account}.dkr.ecr.{region}.amazonaws.com/getpublicip:latest")
-        #)
