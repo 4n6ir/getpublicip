@@ -24,6 +24,10 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 }
 ```
 
+##### Serverless Application Repository
+
+https://serverlessrepo.aws.amazon.com
+
 ##### Cloud Development Kit (CDK) v2
 
 ```python
