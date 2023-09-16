@@ -24,7 +24,7 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs.
 }
 ```
 
-##### Serverless Application Repository
+##### AWS Serverless Application Repository
 
 https://serverlessrepo.aws.amazon.com
 
@@ -38,6 +38,14 @@ https://serverlessrepo.aws.amazon.com
             layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:9'
         )
 ```
+
+##### Amazon ECR Public Gallery
+
+```
+public.ecr.aws/forensicir/getpublicip:latest
+```
+
+https://gallery.ecr.aws/forensicir/getpublicip
 
 ##### Lambda Container Extension
 

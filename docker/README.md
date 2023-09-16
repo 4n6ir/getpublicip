@@ -17,7 +17,7 @@ Maintainer: [John Lukach](https://lukach.io)
 The extension requires these lines to be added to the ```Dockerfile``` for the Lambda Cotainer.
 
 ```docker
-FROM public.ecr.aws/p4b7o4r9/getpublicip:latest AS layer
+FROM public.ecr.aws/forensicir/getpublicip:latest AS layer
 ```
 
 ```docker
