@@ -12,7 +12,7 @@ I have created Lambda Extention that captures the Public IP Address by visiting 
 
 https://checkip.amazonaws.com
 
-The Lambda Extension returns the following log entry in the Cloud Watch Logs.
+The Lambda Extension returns the following log entry in the Cloud Watch Logs. The account number is only available if the **AWS_ACCOUNT** environment variable is part of the Lambda deployment.
 
 ```json
 {
