@@ -78,7 +78,7 @@ CMD ["gtfobin.handler"]
 - ap-southeast-3
 - ap-southeast-4
 - ca-central-1
-- ca-west-1 **+**
+- ca-west-1 **+++**
 - eu-central-1
 - eu-central-2
 - eu-north-1
@@ -95,3 +95,5 @@ CMD ["gtfobin.handler"]
 - us-east-2
 - us-west-1
 - us-west-2
+
+**+++** Limited Python Support
