@@ -98,7 +98,7 @@ class GetpublicipStack(Stack):
 
     ### LAMBDA ###
 
-        if region == 'NO_ARM_64_OPTION':
+        if region == 'ca-west-1':
 
             layer = _lambda.LayerVersion(
                 self, 'layer',
@@ -107,10 +107,9 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_7,
                     _lambda.Runtime.PYTHON_3_8,
                     _lambda.Runtime.PYTHON_3_9,
-                    _lambda.Runtime.PYTHON_3_10,
-                    _lambda.Runtime.PYTHON_3_11
+                    _lambda.Runtime.PYTHON_3_10
                 ],
-                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.31.0 Python library. ',
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.31.0 Python library. (10)',
                 layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
@@ -130,9 +129,10 @@ class GetpublicipStack(Stack):
                     _lambda.Runtime.PYTHON_3_8,
                     _lambda.Runtime.PYTHON_3_9,
                     _lambda.Runtime.PYTHON_3_10,
-                    _lambda.Runtime.PYTHON_3_11
+                    _lambda.Runtime.PYTHON_3_11,
+                    _lambda.Runtime.PYTHON_3_12
                 ],
-                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.31.0 Python library. ',
+                description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.31.0 Python library. (10)',
                 layer_version_name = 'getpublicip',
                 license = 'Apache-2.0 License',
                 removal_policy = RemovalPolicy.DESTROY
@@ -150,7 +150,7 @@ class GetpublicipStack(Stack):
             repository_name = 'getpublicip',
             image_tag_mutability = _ecr.TagMutability.MUTABLE,
             removal_policy = RemovalPolicy.DESTROY,
-            auto_delete_images = True,
+            empty_on_delete = True,
             image_scan_on_push = True
         )
 

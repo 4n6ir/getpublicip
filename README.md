@@ -35,7 +35,7 @@ https://serverlessrepo.aws.amazon.com
 
         layer = _lambda.LayerVersion.from_layer_version_arn(
             self, 'layer',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:9'
+            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:10'
         )
 ```
 
@@ -78,6 +78,7 @@ CMD ["gtfobin.handler"]
 - ap-southeast-3
 - ap-southeast-4
 - ca-central-1
+- ca-west-1 **+**
 - eu-central-1
 - eu-central-2
 - eu-north-1

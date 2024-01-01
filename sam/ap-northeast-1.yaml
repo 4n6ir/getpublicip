@@ -15,6 +15,7 @@ Resources:
         - python3.9
         - python3.10
         - python3.11
+        - python3.12
       CompatibleArchitectures:
         - arm64
         - x86_64
