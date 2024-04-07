@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-import boto3
 import os
 
 import aws_cdk as cdk
@@ -8,21 +7,38 @@ from getpublicip.getpublicip_stack import GetpublicipStack
 
 app = cdk.App()
 
-client = boto3.client('ec2')
-regions = client.describe_regions()
-
-for region in regions['Regions']:
-
-    GetpublicipStack(
-        app, 'GetpublicipStack-'+region['RegionName'],
-        env = cdk.Environment(
-            account = os.getenv('CDK_DEFAULT_ACCOUNT'),
-            region = region['RegionName']
-        ),
-        synthesizer = cdk.DefaultStackSynthesizer(
-            qualifier = '4n6ir'
-        )
+GetpublicipStack(
+    app, 'GetpublicipStack-us-east-1',
+    env = cdk.Environment(
+        account = os.getenv('CDK_DEFAULT_ACCOUNT'),
+        region = 'us-east-1'
+    ),
+    synthesizer = cdk.DefaultStackSynthesizer(
+        qualifier = '4n6ir'
     )
+)
+
+GetpublicipStack(
+    app, 'GetpublicipStack-us-east-2',
+    env = cdk.Environment(
+        account = os.getenv('CDK_DEFAULT_ACCOUNT'),
+        region = 'us-east-2'
+    ),
+    synthesizer = cdk.DefaultStackSynthesizer(
+        qualifier = '4n6ir'
+    )
+)
+
+GetpublicipStack(
+    app, 'GetpublicipStack-us-west-2',
+    env = cdk.Environment(
+        account = os.getenv('CDK_DEFAULT_ACCOUNT'),
+        region = 'us-west-2'
+    ),
+    synthesizer = cdk.DefaultStackSynthesizer(
+        qualifier = '4n6ir'
+    )
+)
 
 cdk.Tags.of(app).add('Alias','Extensions')
 cdk.Tags.of(app).add('GitHub','https://github.com/4n6ir/getpublicip.git')

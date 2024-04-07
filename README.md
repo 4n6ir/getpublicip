@@ -35,7 +35,7 @@ https://serverlessrepo.aws.amazon.com
 
         layer = _lambda.LayerVersion.from_layer_version_arn(
             self, 'layer',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:10'
+            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:11'
         )
 ```
 
@@ -50,7 +50,7 @@ https://gallery.ecr.aws/forensicir/getpublicip
 ##### Lambda Container Extension
 
 ```dockerfile
-### 2.95.1 (build ae455d8) ###
+### 2.136.0 (build 94fd33b) ###
 FROM 070176467818.dkr.ecr.us-west-2.amazonaws.com/getpublicip:latest AS layer
 FROM public.ecr.aws/lambda/python:latest
 RUN yum -y update && yum clean all
@@ -66,34 +66,6 @@ CMD ["gtfobin.handler"]
 
 ##### Regions
 
-- af-south-1
-- ap-east-1
-- ap-northeast-1
-- ap-northeast-2
-- ap-northeast-3
-- ap-south-1
-- ap-south-2
-- ap-southeast-1
-- ap-southeast-2
-- ap-southeast-3
-- ap-southeast-4
-- ca-central-1
-- ca-west-1 **+++**
-- eu-central-1
-- eu-central-2
-- eu-north-1
-- eu-south-1
-- eu-south-2
-- eu-west-1
-- eu-west-2
-- eu-west-3
-- il-central-1
-- me-central-1
-- me-south-1
-- sa-east-1
 - us-east-1
 - us-east-2
-- us-west-1
 - us-west-2
-
-**+++** Limited Python Support
