@@ -7,7 +7,7 @@ Resources:
     Type: AWS::Serverless::LayerVersion
     Properties:
       LayerName: getpublicip
-      Description: AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.31.0 Python library.
+      Description: AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.32.3 Python library.
       ContentUri: s3://getpublicip-us-west-2/extension.zip
       CompatibleRuntimes:
         - python3.8

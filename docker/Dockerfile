@@ -1,4 +1,4 @@
-### 2.136.0 (build 94fd33b) ###
+### 2.143.1 (build 29b0d66) ###
 
 FROM python:3.8-alpine AS installer
 

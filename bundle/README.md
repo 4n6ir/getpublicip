@@ -5,7 +5,7 @@
 ### python dependencies
 
 ```
-cd get-public-ip
+cd bundle/get-public-ip
 chmod +x extension.py
 pip3 install -r requirements.txt -t .
 cd ..
