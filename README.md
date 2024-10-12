@@ -35,7 +35,7 @@ https://serverlessrepo.aws.amazon.com
 
         layer = _lambda.LayerVersion.from_layer_version_arn(
             self, 'layer',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:12'
+            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:13'
         )
 ```
 
