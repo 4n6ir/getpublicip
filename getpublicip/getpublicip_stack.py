@@ -91,7 +91,6 @@ class GetpublicipStack(Stack):
             ]
         )
 
-        account = Stack.of(self).account
         region = Stack.of(self).region
 
     ### LAMBDA ###
@@ -104,13 +103,13 @@ class GetpublicipStack(Stack):
                 _lambda.Architecture.X86_64
             ],
             compatible_runtimes = [
-                _lambda.Runtime.PYTHON_3_8,
                 _lambda.Runtime.PYTHON_3_9,
                 _lambda.Runtime.PYTHON_3_10,
                 _lambda.Runtime.PYTHON_3_11,
-                _lambda.Runtime.PYTHON_3_12
+                _lambda.Runtime.PYTHON_3_12,
+                _lambda.Runtime.PYTHON_3_13
             ],
-            description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.32.3 Python library. (13)',
+            description = 'AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.32.3 Python library. (14)',
             layer_version_name = 'getpublicip',
             license = 'Apache-2.0 License',
             removal_policy = RemovalPolicy.DESTROY

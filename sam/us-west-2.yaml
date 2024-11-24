@@ -10,11 +10,11 @@ Resources:
       Description: AWS Lambda Extension captures the Public IP into Cloud Watch logs at execution using Requests v2.32.3 Python library. 
       ContentUri: s3://getpublicip-us-west-2/extension.zip
       CompatibleRuntimes:
-        - python3.8
         - python3.9
         - python3.10
         - python3.11
         - python3.12
+        - python3.13
       CompatibleArchitectures:
         - arm64
         - x86_64

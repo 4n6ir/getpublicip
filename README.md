@@ -17,7 +17,7 @@ The Lambda Extension returns the following log entry in the Cloud Watch Logs. Th
 ```json
 {
     "publicip": "34.220.123.1",
-    "timestamp": "09/08/2023 02:43:32.379936 UTC",
+    "timestamp": "11/24/2024 05:01:50.379936 UTC",
     "function": "AmazonblocksStack-gtfobin14961F10-bvnpSnvvSSfH",
     "region": "us-west-2",
     "account": "070176467818"
@@ -33,9 +33,14 @@ https://serverlessrepo.aws.amazon.com
 ```python
         region = Stack.of(self).region
 
-        layer = _lambda.LayerVersion.from_layer_version_arn(
-            self, 'layer',
-            layer_version_arn = 'arn:aws:lambda:'+region+':070176467818:layer:getpublicip:13'
+        extensions = _ssm.StringParameter.from_string_parameter_attributes(
+            self, 'extensions',
+            parameter_name = '/extensions/account'
+        )
+
+        getpublicip = _lambda.LayerVersion.from_layer_version_arn(
+            self, 'getpublicip',
+            layer_version_arn = 'arn:aws:lambda:'+region+':'+extensions.string_value+':layer:getpublicip:14'
         )
 ```
 
@@ -50,18 +55,17 @@ https://gallery.ecr.aws/forensicir/getpublicip
 ##### Lambda Container Extension
 
 ```dockerfile
-### 2.136.0 (build 94fd33b) ###
-FROM 070176467818.dkr.ecr.us-west-2.amazonaws.com/getpublicip:latest AS layer
+### 2.170.0 (build 060af6c) ###
+FROM public.ecr.aws/forensicir/getpublicip:latest AS layer
 FROM public.ecr.aws/lambda/python:latest
-RUN yum -y update && yum clean all
 ### layer code ###
 WORKDIR /opt
 COPY --from=layer /opt/ .
 ### function code ###
 WORKDIR /var/task
-COPY gtfobin.py requirements.txt .
+COPY parquet.py requirements.txt .
 RUN pip --no-cache-dir install -r requirements.txt --upgrade
-CMD ["gtfobin.handler"]
+CMD ["parquet.handler"]
 ```
 
 ##### Regions

@@ -1,6 +1,6 @@
-### 2.162.1 (build 10aa526) ###
+### 2.170.0 (build 060af6c) ###
 
-FROM python:3.8-alpine AS installer
+FROM python:3.9-alpine AS installer
 
 COPY src /opt/
 COPY src/requirements.txt /opt/
